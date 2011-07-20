@@ -53,6 +53,7 @@ struct s5p_panel_data {
 #else
 	const struct gamma_entry *gamma_table;
 	int gamma_table_size;
+#endif
 };
 
 enum {
