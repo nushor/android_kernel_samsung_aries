@@ -27,39 +27,39 @@ static const u16 s6e63m0_SEQ_STANDBY_ON[] = {
 };
 
 static const u16 s6e63m0_SEQ_STANDBY_OFF[] = {
-	0x011,	/* Stand-by Off Command */
-	SLEEPMSEC, 120,
-	ENDDEF, 0x0000
+    0x011,	/* Stand-by Off Command */
+    SLEEPMSEC, 120,
+    ENDDEF, 0x0000
 };
 
 static const u16 s6e63m0_SEQ_DISPLAY_SETTING[] = {
-	SLEEPMSEC, 10,
-	0x0F8,	/* Panel Condition Set Command*/
-	0x101,	/* DOCT */
-	0x127,	/* CLWEA */
-	0x127,	/* CLWEB*/
-	0x107,	/* CLTE */
-	0x107,	/* SHE */
-	0x154,	/* FLTE */
-	0x19F,	/* FLWE */
-	0x163,	/* SCTE */
-	0x186,	/* SCWE */
-	0x11A,	/* INTE */
-	0x133,	/* INWE */
-	0x10D,	/* EMPS */
-	0x100,	/* E_INTE */
-	0x100,	/* E_INWE */
-	0x0F2,	/* Display Condition Set Command*/
-	0x102,	/* Number of Line */
-	0x103,	/* VBP */
-	0x11C,	/* VFP */
-	0x110,	/* HBP */
-	0x110,	/* HFP */
-	0x0F7,	/* Command */
-	0x103,	/* GTCON */
-	0x100,	/* Display Mode */
-	0x100,	/* Vsync/Hsync, DOCCLK, RGB mode */
-	ENDDEF, 0x0000
+    SLEEPMSEC, 10,
+    0x0F8,	/* Panel Condition Set Command*/
+    0x101,	/* DOCT */
+    0x127,	/* CLWEA */
+    0x127,	/* CLWEB*/
+    0x107,	/* CLTE */
+    0x107,	/* SHE */
+    0x154,	/* FLTE */
+    0x19F,	/* FLWE */
+    0x163,	/* SCTE */
+    0x186,	/* SCWE */
+    0x11A,	/* INTE */
+    0x133,	/* INWE */
+    0x10D,	/* EMPS */
+    0x100,	/* E_INTE */
+    0x100,	/* E_INWE */
+    0x0F2,	/* Display Condition Set Command*/
+    0x102,	/* Number of Line */
+    0x103,	/* VBP */
+    0x11C,	/* VFP */
+    0x110,	/* HBP */
+    0x110,	/* HFP */
+    0x0F7,	/* Command */
+    0x103,	/* GTCON */
+    0x100,	/* Display Mode */
+    0x100,	/* Vsync/Hsync, DOCCLK, RGB mode */
+    ENDDEF, 0x0000
 };
 
 static const u16 s6e63m0_SEQ_ETC_SETTING[] = {
@@ -163,7 +163,11 @@ static const struct tl2796_gamma_adj_points gamma_adj_points = {
 	.v255 = BV_255,
 };
 
+#ifdef CONFIG_FB_VOODOO
+struct gamma_entry gamma_table[] = {
+#else
 static const struct gamma_entry gamma_table[] = {
+#endif
 	{       BV_0, { 4200000, 4200000, 4200000, }, },
 	{          1, { 3994200, 4107600, 3910200, }, },
 	{ 0x00000400, { 3669486, 3738030, 3655093, }, },

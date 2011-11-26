@@ -48,6 +48,9 @@ struct s5p_panel_data {
 	struct tl2796_color_adj color_adj;
 
 	const struct tl2796_gamma_adj_points *gamma_adj_points;
+#ifdef CONFIG_FB_VOODOO
+  struct gamma_entry *gamma_table;
+#else
 	const struct gamma_entry *gamma_table;
 	int gamma_table_size;
 };
@@ -61,4 +64,5 @@ enum {
 	BV_171 = 0x6A472534,
 	BV_255 = 0xFFFFFFFF,
 };
+
 
